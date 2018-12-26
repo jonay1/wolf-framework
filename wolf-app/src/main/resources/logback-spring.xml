@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration>
+
+<configuration debug="false">
+	<contextName>wolf</contextName>
+
+	<!-- 控制台日志 -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern><![CDATA[
+				%d{yyyy-MM-dd HH:mm:ss.SSS}  %-5level %logger - %m%n
+            ]]></pattern>
+		</layout>
+	</appender>
+	<logger name="jdbc.audit" level="ERROR"></logger>
+	<logger name="jdbc.resultset" level="ERROR"></logger>
+	<logger name="jdbc.sqlonly" level="ERROR"></logger>
+	<logger name="jdbc.sqltiming" level="INFO"></logger>
+	<!-- 根配置 -->
+	<root level="DEBUG" addtivity="false">
+		<appender-ref ref="CONSOLE" />
+	</root>
+</configuration>

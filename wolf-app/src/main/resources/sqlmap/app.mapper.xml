@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wolf.app.sql">
+
+	<select id="curval" parameterType="com.wolf.app.data.entity.Sequence" resultType="long">
+		select t.val from T_SEQUENCE t where t.catagory=#{catagory}
+		and
+		t.name=#{name} for update
+	</select>
+
+	<update id="nextval" parameterType="com.wolf.app.data.entity.Sequence">
+		update T_SEQUENCE t set
+		t.val=t.val+1 where t.catagory=#{catagory} and
+		t.name=#{name}
+	</update>
+
+
+</mapper>
